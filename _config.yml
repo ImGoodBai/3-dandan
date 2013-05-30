@@ -4,6 +4,7 @@ server:      false
 server_port: 4000
 baseurl:    
 url: http://goodbai.com
+description: "分享和传播陕北文化，内容包括陕北民歌、人文风俗、吃喝等等。"
 
 blogname: 3dandan
 weibo: 

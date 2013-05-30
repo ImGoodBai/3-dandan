@@ -5,12 +5,13 @@ Jx().$package('JxHome', function (J) {
 		pkg = this;
 	
 	var urlHash = {
-		//'home': './home_nocanvas.html',
-		'home': supportCanvas() ? './home.html' : './home_nocanvas.html',
+		//'home': '/minge/index.html',
+		'home': supportCanvas() ? './home.html' : '/minge/index.html',
 		
-		'doc': './doc/index.html',
-		'demo': './demo/index.html',
-		'download': './download.html',
+		'meishi': './meishi/index.html',
+		'techan': './techan/index.html',
+		'live': './live/live.html',
+		'cool': './cool/cool.html',
 		'about': './about.html'
 	}, $ifm, $navUl, $lis, $doc;	
 	

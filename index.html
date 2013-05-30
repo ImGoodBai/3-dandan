@@ -1,21 +1,25 @@
 ---
+layout: default
 title: 3dandan
+keywords: 陕北民歌,陕北文化
 ---
 
-<head>
-	<link href="./style/index.css" rel="stylesheet" />
-	<script src="./js/jx.dom.event.fx.js"></script>
-</head>
+<link href="./style/index.css" rel="stylesheet" />
+<script src="./js/jx.dom.event.fx.js"></script>
 
 <div id="doc" class="doc full">
 	<div class="nav">
-		<h1 class="nav-title" title="Javascript eXtension 框架">JX</h1>
+		<h1 class="nav-title" title="Javascript eXtension 框架">3dd</h1>
 		<ul id="nav-ul" class="nav-ul">
 	　　　　{% for post in site.posts %}
 	　　　　　　<!--li id="nav-doc data-key="home" class="selected"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li-->
 	　　　　{% endfor %}
-			<li id="nav-home" data-key="home" class="selected"><a href="/">Home</a></li>
-			<li id="nav-doc" data-key="doc"><a href="#doc">王向荣</a></li>
+			<li id="nav-home" data-key="home" class="selected"><a href="/">听在陕北</a></li>
+			<li id="nav-doc" data-key="meishi"><a href="#meishi">吃在陕北</a></li>
+			<li id="nav-doc" data-key="techan"><a href="#techan">产在陕北</a></li>
+			<li id="nav-doc" data-key="live"><a href="#live">活在陕北</a></li>
+			<li id="nav-doc" data-key="cool"><a href="#cool">玩在陕北</a></li>
+			<li id="nav-doc" data-key="about"><a href="#about">About</a></li>
 		</ul>
 	</div>
 	
