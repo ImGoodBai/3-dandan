@@ -5,8 +5,8 @@ Jx().$package('JxHome', function (J) {
 		pkg = this;
 	
 	var urlHash = {
-		//'home': '/minge/index.html',
-		'home': supportCanvas() ? './home.html' : '/minge/index.html',
+		//'home': '/minge.html',
+		'home': supportCanvas() ? './home.html' : '/minge.html',
 		
 		'meishi': './meishi/index.html',
 		'techan': './techan/index.html',

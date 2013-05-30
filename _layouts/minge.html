@@ -2,7 +2,96 @@
 layout: default
 ---
 
+  <article class="docBox">
+          <p>选中歌曲前的选择框，再点击后面的播放，既可以播放选中歌曲。<p>
+<button  name="play" onclick=playlist() >Play</button>
+<div id=songdiv> 
+<table id=songul>
+<script title="gen gong table">
+
 {{ content }}  
+
+baseurl="http://www.xiami.com/widget/";
+songcodebase="15460071_";
+songcodeend="3254732";
+endurl="singlePlayer.swf";
+songcount=35;
+
+document.write('<tr>');
+document.write('<th>序号</th>');
+document.write('<th>名称</th>');
+document.write('<th>歌手</th>');
+document.write('<th><input type="checkbox" name="allbox" onselect=select_allbox() value="value"/></th>');
+document.write('<th>操作</th>');
+document.write('</tr>');
+for(var i=0 ; i<songcount; i++){
+/*
+	var atxt= document.createElement("a");
+	atxt.setAttribute('href', 'test.php');
+	atxt.innerHTML = songinfo[i][0]+' - '+songinfo[i][1]+' -'+songinfo[i][4]
+
+	var chk = document.createElement("INPUT");
+	chk.setAttribute("type","checkbox");
+	chk.setAttribute("name","box");
+
+	var nl = document.createElement("li");
+	nl.appendChild(chk); 
+	nl.appendChild(atxt);
+	var songul = document.getElementById("songul");
+	songul.appendChild(nl);
+*/
+	/*write song list table's header*/
+	document.write('<tr>');
+	document.write('<td>'+songinfo[i][0]+'</td>');
+	document.write('<td>'+songinfo[i][1]+'</td>');
+	document.write('<td>'+songinfo[i][4]+'</td>');
+	document.write('<td><input type="checkbox" name="box" value="value"/></td>');
+	document.write('<td><a href='+""+'>A</a></td>');
+	document.write('</tr>');
+	//songcodeend++;
+	//playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodeend+'/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
+
+}
+function playlist(){
+	var boxlist = document.getElementsByName("box");
+	var songcodelist = "";
+	for (i = 0; i < boxlist.length; i++){ 
+            if (boxlist[i].checked == true){ 
+		songcodelist = songcodelist + songinfo[i][3] + ",";
+            } 
+        } 
+        if (songcodelist == ""){ 
+            alert("请至少选择一首以上歌曲。"); 
+            return; 
+        } 
+	var playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodelist+'_235_346_e29833_60362a_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>';
+	//document.write(playurl);	
+	/*开新窗口播放选中列表*/
+	var playwin = window.open('',"三丹丹播放器","width=255,height=366,status=no,resizable=no");
+	playwin.document.write(playurl);
+	
+}
+function select_allbox(){
+	var box = document.getElementsByName("allbox");
+	var status = "";
+	if (box.checked == true){ 
+		status = "";
+	}
+	for (i = 0; i < boxlist.length; i++){ 
+            if (boxlist[i].checked == true){ 
+		songcodelist = songcodelist + songinfo[i][3] + ",";
+            } 
+	}
+}
+<!--embed src="http://www.xiami.com/widget/15460071_1770724849,1770724853,1770724848,1770724855,1770724850,1770724847,1770724857,1770724852,1770724858,1770724854,1770724851,1770724856,1771410224,_235_160_e29833_60362a_0/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="118" wmode="opaque"></embed>
+</script>
+<!--button  name="play" onclick=playlist() >Play</button-->
+</table>
+</div> <!--songdiv end -->
+
+<article class="docBox">
+
+
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
     <div id="disqus_thread">

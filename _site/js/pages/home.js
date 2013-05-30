@@ -110,7 +110,7 @@ Laro.register('JxHome', function (La) {
 		});
         document.getElementById('skip-btn').addEventListener('click', function (e) {
             e.preventDefault();
-            window.location.href = '/minge/index.html';
+            window.location.href = '/minge.html';
         }, false);
 	}
 	
@@ -533,7 +533,7 @@ Laro.register('JxHome.$states', function (La) {
 		},
 		transition: function () {
 			if (this._t > 7 && !this.tryJump) {
-				window.location.href = '/minge/index.html';
+				window.location.href = '/minge.html';
 				this.tryJump = true;
 			}
 		},
