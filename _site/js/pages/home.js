@@ -115,16 +115,16 @@ Laro.register('JxHome', function (La) {
 	}
 	
 	this.initParticles = function () {
+		this.qplusParticles = this.getParticles('qplus', 50, 50, 100);
 		this.qqParticles = this.getParticles('qq', 40, 40);
 		this.jxParticles = this.getParticles('jx', 49, 34);
-		this.qplusParticles = this.getParticles('qplus', 50, 50, 100);
 		this.atParticles = this.getParticles('at', 225, 44, 500);
 		
 		this.particleHash = {
 			'normal': this.normalBalls,
-			'qq': this.qqParticles,
 			'jx': this.jxParticles,
 			'qplus': this.qplusParticles,
+			'qq': this.qqParticles,
 			'at': this.atParticles
 		}
 	}
