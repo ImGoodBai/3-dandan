@@ -5,7 +5,7 @@
     <meta name="copyright" content="http://goodbai.com" />
     <meta name="keywords" content="" />
     <meta name="description" content="分享和传播陕北文化，内容包括陕北民歌、人文风俗、吃喝等等。" />
-    <title> 王向荣 | </title>
+    <title> 模板 | </title>
   </head>
 
   <body>
@@ -18,10 +18,12 @@
     </div-->
 
     <div id="main">
-          <script>
-var artist_description= 
-"近年来，原生态民歌成了音乐领域描述“原汁原味”民歌的时髦词汇。原生态民歌是从旋律风格到演唱方法都保持着相对原始形态的民歌呈现，质朴自然，地域特征显著，同时还是人类发展历程中一种民间原始文化的记载，是民族“口头与非物质文化遗产”的重要组成部分，具有深厚的传统文化底蕴。“ＣＣＴＶ西部民歌大赛”、原生态民歌演唱会、青年歌手电视大奖赛原生态组比赛、原生态民歌电视栏目的大幅制作等等不仅让人们体会到了原生态民歌独有的魅力，也使原生态民歌成为国内文化艺术界关注的焦点，加上众多的媒体造势与商业炒作，不同形态的“原生态” 民歌陡然间风靡全国、身价倍增，同时亦引发了无数的争论。";
-var artist_photo="/images/minge/wangxiangrong.jpg";
+          <p>选中歌曲前的选择框，再点击后面的播放，既可以播放选中歌曲。<p>
+<button  name="play" onclick=playlist() >Play</button>
+<div id=songdiv> <ul id=songul>
+</div>
+<button  name="play" onclick=playlist() >Play</button>
+<script>
 var songinfo= 
 [["1","脚夫调(信天游)","15460071_","3254732","王向荣"],
 ["2","打樱桃(二人台)","15460071_","3254733","王向荣"],
@@ -59,41 +61,13 @@ var songinfo=
 ["34","走西口之三(二人台)","15460071_","3254765","王向荣"],
 ["35","走西口之一(陕北小调)","15460071_","3254766","王向荣"]];
 
-
-</script>
-  
-
-<link href="/style/style.css" rel="stylesheet" />
-
-<article class="docBox">
-<div id=artistinfo> 
-<script>
-document.write('<img src='+artist_photo+' width="170"  />');
-document.write(artist_description);
-</script>
-
-</div> <!--songlist end -->
-<div id=songlist> 
-<button  name="play" onclick=playlist() >播放选中歌曲</button>
-<button  name="play" onclick=downloadlist() >下载选中歌曲</button>
-<table id=songul>
-
-<script title="generate song table">
 baseurl="http://www.xiami.com/widget/";
 songcodebase="15460071_";
 songcodeend="3254732";
 endurl="singlePlayer.swf";
 songcount=35;
 
-document.write('<tr>');
-document.write('<th>序号</th>');
-document.write('<th>名称</th>');
-document.write('<th>歌手</th>');
-document.write('<th><input type="checkbox" id="allbox" onclick=select_allbox() value="value"/></th>');
-document.write('<th>操作</th>');
-document.write('</tr>');
 for(var i=0 ; i<songcount; i++){
-/*
 	var atxt= document.createElement("a");
 	atxt.setAttribute('href', 'test.php');
 	atxt.innerHTML = songinfo[i][0]+' - '+songinfo[i][1]+' -'+songinfo[i][4]
@@ -107,15 +81,15 @@ for(var i=0 ; i<songcount; i++){
 	nl.appendChild(atxt);
 	var songul = document.getElementById("songul");
 	songul.appendChild(nl);
+/*
+	document.write('<li><input type="checkbox" name="box" value="value">');
+	document.write(songinfo[i][0]);
+	document.write(' - ');
+	document.write(songinfo[i][1]);
+	document.write(' - ');
+	document.write(songinfo[i][4]);
+	document.write('</li>');
 */
-	/*write song list table's header*/
-	document.write('<tr>');
-	document.write('<td>'+songinfo[i][0]+'</td>');
-	document.write('<td>'+songinfo[i][1]+'</td>');
-	document.write('<td>'+songinfo[i][4]+'</td>');
-	document.write('<td><input type="checkbox" name="box" value="value"/></td>');
-	document.write('<td><a href='+""+'>下载</a></td>');
-	document.write('</tr>');
 	//songcodeend++;
 	//playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodeend+'/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
 
@@ -133,51 +107,11 @@ function playlist(){
             return; 
         } 
 	var playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodelist+'_235_346_e29833_60362a_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>';
-	//document.write(playurl);	
-	/*开新窗口播放选中列表*/
-	var playwin = window.open('',"三丹丹播放器","width=255,height=366,status=no,resizable=no");
-	playwin.document.write(playurl);
+	document.write(playurl);	
 	
 }
-function select_allbox(){
-	var boxlist = document.getElementsByName("box");
-	var box = document.getElementById("allbox");
-	var status = false;
-	if (box.checked == true){ 
-		status = true;
-	}
-	for (i = 0; i < boxlist.length; i++){ 
-                boxlist[i].checked = status; 
-	}
-}
 <!--embed src="http://www.xiami.com/widget/15460071_1770724849,1770724853,1770724848,1770724855,1770724850,1770724847,1770724857,1770724852,1770724858,1770724854,1770724851,1770724856,1771410224,_235_160_e29833_60362a_0/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="118" wmode="opaque"></embed>
-/*  
-document.write('<button  name="play" onclick='+playlist()+' >播放选中歌曲</button>');
-document.write('<button  name="play" onclick='+""+' >播放选中歌曲</button>');
-*/
 </script>
-</table>
-</div> <!--songlist end -->
-
-<article class="docBox">
-
-
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
-    <div id="disqus_thread">
-    <script type="text/javascript">
-        var disqus_shortname = '3dandancom'; // required: replace example with your forum shortname
-
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
- </div>
 
     </div>
 

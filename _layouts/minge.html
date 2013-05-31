@@ -2,15 +2,25 @@
 layout: default
 ---
 
-  <article class="docBox">
-          <p>选中歌曲前的选择框，再点击后面的播放，既可以播放选中歌曲。<p>
-<button  name="play" onclick=playlist() >Play</button>
-<div id=songdiv> 
-<table id=songul>
-<script title="gen gong table">
 
 {{ content }}  
 
+<link href="/style/style.css" rel="stylesheet" />
+
+<article class="docBox">
+<div id=artistinfo> 
+<script>
+document.write('<img src='+artist_photo+' width="170"  />');
+document.write(artist_description);
+</script>
+
+</div> <!--songlist end -->
+<div id=songlist> 
+<button  name="play" onclick=playlist() >播放选中歌曲</button>
+<button  name="play" onclick=downloadlist() >下载选中歌曲</button>
+<table id=songul>
+
+<script title="generate song table">
 baseurl="http://www.xiami.com/widget/";
 songcodebase="15460071_";
 songcodeend="3254732";
@@ -21,7 +31,7 @@ document.write('<tr>');
 document.write('<th>序号</th>');
 document.write('<th>名称</th>');
 document.write('<th>歌手</th>');
-document.write('<th><input type="checkbox" name="allbox" onselect=select_allbox() value="value"/></th>');
+document.write('<th><input type="checkbox" id="allbox" onclick=select_allbox() value="value"/></th>');
 document.write('<th>操作</th>');
 document.write('</tr>');
 for(var i=0 ; i<songcount; i++){
@@ -46,7 +56,7 @@ for(var i=0 ; i<songcount; i++){
 	document.write('<td>'+songinfo[i][1]+'</td>');
 	document.write('<td>'+songinfo[i][4]+'</td>');
 	document.write('<td><input type="checkbox" name="box" value="value"/></td>');
-	document.write('<td><a href='+""+'>A</a></td>');
+	document.write('<td><a href='+""+'>下载</a></td>');
 	document.write('</tr>');
 	//songcodeend++;
 	//playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodeend+'/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
@@ -72,22 +82,24 @@ function playlist(){
 	
 }
 function select_allbox(){
-	var box = document.getElementsByName("allbox");
-	var status = "";
+	var boxlist = document.getElementsByName("box");
+	var box = document.getElementById("allbox");
+	var status = false;
 	if (box.checked == true){ 
-		status = "";
+		status = true;
 	}
 	for (i = 0; i < boxlist.length; i++){ 
-            if (boxlist[i].checked == true){ 
-		songcodelist = songcodelist + songinfo[i][3] + ",";
-            } 
+                boxlist[i].checked = status; 
 	}
 }
 <!--embed src="http://www.xiami.com/widget/15460071_1770724849,1770724853,1770724848,1770724855,1770724850,1770724847,1770724857,1770724852,1770724858,1770724854,1770724851,1770724856,1771410224,_235_160_e29833_60362a_0/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="118" wmode="opaque"></embed>
+/*  
+document.write('<button  name="play" onclick='+playlist()+' >播放选中歌曲</button>');
+document.write('<button  name="play" onclick='+""+' >播放选中歌曲</button>');
+*/
 </script>
-<!--button  name="play" onclick=playlist() >Play</button-->
 </table>
-</div> <!--songdiv end -->
+</div> <!--songlist end -->
 
 <article class="docBox">
 
@@ -95,12 +107,9 @@ function select_allbox(){
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
     <div id="disqus_thread">
-    <br><br>
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'goodbai'; // required: replace example with your forum shortname
+        var disqus_shortname = '3dandancom'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -108,5 +117,6 @@ function select_allbox(){
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <br><br>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
  </div>

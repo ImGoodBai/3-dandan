@@ -1,13 +1,13 @@
 ---
-layout: default
-title: 王向荣(35首)
+layout: minge
+keyword: 陕北民歌,王向荣
+tags: 王向荣 
+title: 二妮
 ---
-<p>选中歌曲前的选择框，再点击后面的播放，既可以播放选中歌曲。<p>
-<button  name="play" onclick=playlist() >Play</button>
-<div id=songdiv> <ul id=songul>
-</div>
-<button  name="play" onclick=playlist() >Play</button>
 <script>
+var description= 
+"近年来，原生态民歌成了音乐领域描述“原汁原味”民歌的时髦词汇。原生态民歌是从旋律风格到演唱方法都保持着相对原始形态的民歌呈现，质朴自然，地域特征显著，同时还是人类发展历程中一种民间原始文化的记载，是民族“口头与非物质文化遗产”的重要组成部分，具有深厚的传统文化底蕴。“ＣＣＴＶ西部民歌大赛”、原生态民歌演唱会、青年歌手电视大奖赛原生态组比赛、原生态民歌电视栏目的大幅制作等等不仅让人们体会到了原生态民歌独有的魅力，也使原生态民歌成为国内文化艺术界关注的焦点，加上众多的媒体造势与商业炒作，不同形态的“原生态” 民歌陡然间风靡全国、身价倍增，同时亦引发了无数的争论。";
+var photo="/images/minge/wangxiangrong.jpg";
 var songinfo= 
 [["1","脚夫调(信天游)","15460071_","3254732","王向荣"],
 ["2","打樱桃(二人台)","15460071_","3254733","王向荣"],
@@ -45,54 +45,5 @@ var songinfo=
 ["34","走西口之三(二人台)","15460071_","3254765","王向荣"],
 ["35","走西口之一(陕北小调)","15460071_","3254766","王向荣"]];
 
-baseurl="http://www.xiami.com/widget/";
-songcodebase="15460071_";
-songcodeend="3254732";
-endurl="singlePlayer.swf";
-songcount=35;
 
-for(var i=0 ; i<songcount; i++){
-	var atxt= document.createElement("a");
-	atxt.setAttribute('href', 'test.php');
-	atxt.innerHTML = songinfo[i][0]+' - '+songinfo[i][1]+' -'+songinfo[i][4]
-
-	var chk = document.createElement("INPUT");
-	chk.setAttribute("type","checkbox");
-	chk.setAttribute("name","box");
-
-	var nl = document.createElement("li");
-	nl.appendChild(chk); 
-	nl.appendChild(atxt);
-	var songul = document.getElementById("songul");
-	songul.appendChild(nl);
-/*
-	document.write('<li><input type="checkbox" name="box" value="value">');
-	document.write(songinfo[i][0]);
-	document.write(' - ');
-	document.write(songinfo[i][1]);
-	document.write(' - ');
-	document.write(songinfo[i][4]);
-	document.write('</li>');
-*/
-	//songcodeend++;
-	//playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodeend+'/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
-
-}
-function playlist(){
-	var boxlist = document.getElementsByName("box");
-	var songcodelist = "";
-	for (i = 0; i < boxlist.length; i++){ 
-            if (boxlist[i].checked == true){ 
-		songcodelist = songcodelist + songinfo[i][3] + ",";
-            } 
-        } 
-        if (songcodelist == ""){ 
-            alert("请至少选择一首以上歌曲。"); 
-            return; 
-        } 
-	var playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodelist+'_235_346_e29833_60362a_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>';
-	document.write(playurl);	
-	
-}
-<!--embed src="http://www.xiami.com/widget/15460071_1770724849,1770724853,1770724848,1770724855,1770724850,1770724847,1770724857,1770724852,1770724858,1770724854,1770724851,1770724856,1771410224,_235_160_e29833_60362a_0/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="118" wmode="opaque"></embed>
 </script>
