@@ -1,0 +1,95 @@
+<script>
+with ((window && window.console && window.console._commandLineAPI) || {}) {
+function hack(){
+        cc = 1;
+        printtxt = [];
+        out = window.open('','歌词窗口','width=255,height=366,status=no,resizable=no');
+        //artist_name = document.getElementById("title").innerText;
+	artist_name = document.getElementById("album_info").getElementsByTagName("td")[1].innerText;
+        image = document.getElementById("cover_lightbox").getElementsByTagName("img"); 
+        image_src = image[0].getAttribute("src"); 
+        image_alt = image[0].getAttribute("alt"); 
+        printtxt.push('<div id ="" class = artist_info ><br>\
+        artist_t = {}; <br>\
+        album_t = {};<br>\
+        disc_t = {};<br>\
+        song_t = {};<br>\
+        artist_t.id = "";<br>\
+        artist_t.name = "' + artist_name + '";<br>\
+        artist_t.image = ["' + image_src + '","' + image_alt + '"];<br>\
+        artist_t.albumlist = [];<br></div>');
+
+        albums = document.getElementsByClassName("album_item100_block");
+        //for(i=0;i<albums.length;i++){
+        for(i=0;i<1;i++){
+                albumx = "album-" + i;
+                albumn =  document.getElementById("title").innerText;
+                printtxt.push('<br><br><br>\
+                album_t.id = "' + albumx + '";<br>\
+                album_t.name = "' + albumn + '"<br>\
+                album_t.disclist = [];');
+
+                tracks = document.getElementById("track").getElementsByClassName("trackname");
+                if (tracks.length == 0 ){console.log(artist_name + " track is NULL." + "<br>");continue};
+                track_count = tracks.length;
+                track_name = tracks[0].innerText;
+
+                discs = document.getElementById("track").getElementsByTagName("table");
+                if (discs.length == 0 ){console.log(artist_name + ">" + track_name +  " is NULL." + "<br>");continue;};
+                console.log(artist_name + ">" + track_name +  "count:" + discs.length + "<br>");
+                //for every exsit disc
+                for(j=0;j<discs.length;j++){
+                        discx = "disc-" + j;
+                        printtxt.push('<br><br>\
+                        disc_t.id = "' + discx + '"<br>\
+                        disc_t.songlist = [];');
+                        disc = discs[j];
+                        trs = disc.getElementsByTagName("tr");
+                        song_count = trs.length;
+                        if (trs.length == 0 ){console.log(artist_name + ">" + track_name + ">tables" + (j+1) +  " is NULL." + "<br>");continue;};
+                        console.log(artist_name + ">" + track_name + ">tables" + (j+1) +  " Song:" + song_count + "<br>");
+                        //one <tr> contain one song
+                        for(h=0;h<trs.length;h++){
+                                tr = trs[h];
+                                td = tr.getElementsByClassName("song_name"); 
+                                td1 = td[0];
+                                a = td1.getElementsByTagName("a");
+                                a1 = a[0];
+
+                                song_url = a1.getAttribute("href"); 
+                                tmp = song_url.split("/");
+                                index = tmp.length - 1;
+				lrc_str = "NULL";
+/*
+                                lrc_win = window.open(song_url,'歌词窗口','width=255,height=366,status=no,resizable=no');
+				while(lrc_win.document.readyState != "complete"){}
+                                lrc_block = lrc_win.document.getElementById("lrc");
+                                lrc_main = lrc_block.getElementsByClassName("lrc_main")[0];
+                                if (lrc_main+"" == "undefined"){
+                                        lrc_str = "NULL";
+                                }else{
+                                        orig = lrc_main.innerText;
+                                        orig_split = orig.split("编辑人");
+                                        lrc_str = orig_split[0];
+				}
+*/
+				printtxt.push('<br>\
+						song_t.name = "' + a1.innerText + '";\
+                                song_t.id = "' + tmp[index] + '";\
+                                song_t.lrc = "' + lrc_str + '";');
+                                console.log("XXXXXXXXXXXXXXXXXX----"+cc++);
+				//lrc_win.close();
+                                printtxt.push('disc_t.songlist.push(song_t);');
+                        }
+                        printtxt.push('<br>album_t.disclist.push(disc_t);');
+                }
+                printtxt.push('<br>artist_t.albumlist.push(album_t);');
+		for(gg=0;gg<printtxt.length;gg++){
+			out.document.write(printtxt[gg]);
+		}
+        }
+} //@ sourceURL=3dd.js
+
+
+}
+</script>
