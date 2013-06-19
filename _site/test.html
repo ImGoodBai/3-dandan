@@ -1,3 +1,23 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://alloyteam.github.io/JXUI/css/tabs.css" />
+<link rel="stylesheet" type="text/css" href="http://alloyteam.github.io/JXUI/css/dropdown.css" />
+<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("test.html #table");
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
+
 <script>
 function select_allbox(){
 	var box = document.getElementById("all");	
@@ -7,22 +27,18 @@ function select_allbox(){
 		alert('你取消了选择');
 }
 </script>
+
 <table>
 <tr>
-<th>aaaaaaaa</th>
-<th>aaa</th>
-<th>aaa</th>
+<th>aaaaaaaa</th> <th>aaa</th><th>aaa</th>
 </tr>
 <tr>
-<td>aaaaaaaa</td>
-<td>aaa</td>
-<td>aaa</td>
+<td>aaaaaaaa</td><td>aaa</td><td>aaa</td>
 </tr>
 <tr>
-<td>aaa</td>
-<td>aaa</td>
-<td>aaaddddddddddddd</td>
+<td>aaa</td><td>aaa</td><td>aaaddddddddddddd</td>
 </tr>
 </table>
 
 <input type="checkbox" id="all" name="allbox" onclick="select_allbox()" />
+</html>
