@@ -6,7 +6,7 @@
     <meta name="copyright" content="http://goodbai.com" />
     <meta name="keywords" content="" />
     <meta name="description" content="分享和传播陕北文化，内容包括陕北民歌、人文风俗、吃喝等等。" />
-    <title> 404_Error | </title>
+    <title></title>
   </head>
 
   <body>
@@ -27,8 +27,36 @@
     </div>
 
     <div id="main">
-          <p>出错啦,一定是输入的地址有问题。</p>
+          <link type="text/css" rel="stylesheet" href="test_css3_UI_lib_files/style.css" />
+<div class="nav">
+	<ul id="nav-ul" class="nav-ul">
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/yunenfeng.html">贠恩凤</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/wangerni.html">王二妮</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/maziqing.html">马子清</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/gonglina.html">龚琳娜</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/fengjianxue.html">冯健雪</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/chaigener.html">柴根儿</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/abao3.html">阿宝3</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/abao2.html">阿宝2</a></li>
+	
+		<li id="nav-doc data-key="home" class="selected"><a href="/2013/06/27/abao1.html">阿宝1</a></li>
+	
+	</ul>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
+<script type="text/javascript" src="test_css3_UI_lib_files/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="test_css3_UI_lib_files/qwt.demolist.js"></script>
+  
 
     </div>
 

@@ -3,20 +3,26 @@ with ((window && window.console && window.console._commandLineAPI) || {}) {
 function hack(){
         cc = 1;
         printtxt = [];
+
         out = window.open('','歌词窗口','width=255,height=366,status=no,resizable=no');
         //artist_name = document.getElementById("title").innerText;
 	artist_name = document.getElementById("album_info").getElementsByTagName("td")[1].innerText;
         image = document.getElementById("cover_lightbox").getElementsByTagName("img"); 
         image_src = image[0].getAttribute("src"); 
         image_alt = image[0].getAttribute("alt"); 
+	art_info = document.getElementById("album_intro").innerText;
+	art_songcount = 0;
+	printtxt.push('---<br>layout: minge<br>keyword: 陕北民歌<br>tags: <br>title: ' + artist_name + '<br>---');
+	printtxt.push('<br>&#60script&#62');
         printtxt.push('<div id ="" class = artist_info ><br>\
-        artist_t = {}; <br>\
+        artist_t = {};<br>\
         album_t = {};<br>\
         disc_t = {};<br>\
         song_t = {};<br>\
         artist_t.id = "";<br>\
         artist_t.name = "' + artist_name + '";<br>\
         artist_t.image = ["' + image_src + '","' + image_alt + '"];<br>\
+	artist_t.des = \'' + art_info + '\';<br>\
         artist_t.albumlist = [];<br></div>');
 
         albums = document.getElementsByClassName("album_item100_block");
@@ -60,8 +66,10 @@ function hack(){
                                 tmp = song_url.split("/");
                                 index = tmp.length - 1;
 				lrc_str = "NULL";
+				art_songcount++;
 /*
                                 lrc_win = window.open(song_url,'歌词窗口','width=255,height=366,status=no,resizable=no');
+				win = window.open('u/0/sent','blank',''); win.onload = function(){ win.alert('ok'); }; 
 				while(lrc_win.document.readyState != "complete"){}
                                 lrc_block = lrc_win.document.getElementById("lrc");
                                 lrc_main = lrc_block.getElementsByClassName("lrc_main")[0];
@@ -79,15 +87,17 @@ function hack(){
                                 song_t.lrc = "' + lrc_str + '";');
                                 console.log("XXXXXXXXXXXXXXXXXX----"+cc++);
 				//lrc_win.close();
-                                printtxt.push('disc_t.songlist.push(song_t);');
+                                printtxt.push('disc_t.songlist.push(song_t);\
+				song_t = new Object();');
                         }
-                        printtxt.push('<br>album_t.disclist.push(disc_t);');
+                        printtxt.push('<br>album_t.disclist.push(disc_t);disc_t = new Object();');
                 }
-                printtxt.push('<br>artist_t.albumlist.push(album_t);');
-		for(gg=0;gg<printtxt.length;gg++){
+                printtxt.push('<br>artist_t.albumlist.push(album_t);album_t = new Object();');
+        }
+	printtxt.push('<br>&#60/script&#62&#62');
+	for(gg=0;gg<printtxt.length;gg++){
 			out.document.write(printtxt[gg]);
 		}
-        }
 } //@ sourceURL=3dd.js
 
 
