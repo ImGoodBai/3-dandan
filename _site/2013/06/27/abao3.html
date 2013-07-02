@@ -6,22 +6,22 @@
     <meta name="copyright" content="http://goodbai.com" />
     <meta name="keywords" content="" />
     <meta name="description" content="分享和传播陕北文化，内容包括陕北民歌、人文风俗、吃喝等等。" />
-    <title> 阿宝3 | </title>
+    <title>陕北民歌-阿宝3 | </title>
   </head>
 
   <body>
   <div id="page" class="background">
     <div id="header">
-        <div id=daohang">
+        <div id="header_menu">
         <ul >
         <!--li><a href="/index.html"> 3dandan </a></li-->
         <li><a href="/index.html"> 陕北民歌 </a></li>
         <li><a class="about" href="/">陕北说书</a></li>
         <li><a class="about" href="/">关于本站</a></li>
-        <li id="client">手机客户端
-		<a href="/"><img src="images/apple-32.jpg" width=20 height=20></a>
-		<a href="/"><img src="images/android-32.jpg" width=20 height=20></a>
-	</li>
+        <!--li id="header_tools">手机客户端
+		<a href="/"><img src="images/apple-32.jpg" width=15 height=15></a>
+		<a href="/"><img src="images/android-32.jpg" width=15 height=15></a>
+	</li-->
         </ul>
         </div>
     </div>
@@ -64,18 +64,67 @@ artist_t.albumlist.push(album_t);album_t = new Object();
 
 <link href="/style/style.css" rel="stylesheet" />
 
-<article class="docBox">
 <div id=artistinfo> 
 <script>
-document.write('<img src='+artist_t.image[0]+' width="170"  />');
+document.write('<img class=artist_logo src='+artist_t.image[0]+' width="170"  />');
 document.write(artist_t.des);
 </script>
 
 </div> <!--songlist end -->
 <div id=songlist> 
-<button  name="play" onclick=playlist() >播放选中歌曲</button>
-<button  name="play" onclick=downloadlist() >下载选中歌曲</button>
-<table id=songul>
+<button name="play" onclick=playlist() >试听选中歌曲</button>
+<button >分享...</button>
+
+	<!--分享到QQ空间-->
+	<!--script type="text/javascript">
+	(function(){
+	var p = {
+	url:location.href,
+	showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+	desc:'',/*默认分享理由(可选)*/
+	summary:'',/*分享摘要(可选)*/
+	title:document.title,/*分享标题(可选)*/
+	site:'3dandan.com',/*分享来源 如：腾讯网(可选)*/
+	pics:artist_t.image[0], /*分享图片的路径(可选)*/
+	style:'202',
+	width:31,
+	height:20
+	};
+	var s = [];
+	for(var i in p){
+	s.push(i + '=' + encodeURIComponent(p[i]||''));
+	}
+	document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享</a>'].join(''));
+	})();
+	</script>
+	<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script-->
+
+	<!--分享到微博-->
+	<!--script type="text/javascript" charset="utf-8">
+	(function(){
+	  var _w = 16 , _h = 16;
+	  var param = {
+	    url:location.href,
+	    type:'6',
+	    count:'0', /**是否显示分享数，1显示(可选)*/
+	    appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
+	    title:document.title, /**分享的文字内容(可选，默认为所在页面的title)*/
+	    pic:'', /**分享图片的路径(可选)*/
+	    ralateUid:'3512780724', /**关联用户的UID，分享微博会@该用户(可选)*/
+	    language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+	    dpc:1
+	  }
+	  var temp = [];
+	  for( var p in param ){
+	    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+	  }
+	  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://service.weibo.com/staticjs/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+	})()
+	</script-->
+	<!--分享到人人-->
+	<a name="xn_share" type="button_count_right" href="#">人人</a><script src="http://static.connect.renren.com/js/share.js" type="text/javascript"></script>
+
+<table id=song_table>
 
 <script title="generate song table">
 baseurl="http://www.xiami.com/widget/";
@@ -87,28 +136,40 @@ formatsonglist(artist_t);
 
 function formatsonglist(artist_t){
 	document.write('<tr>');
-	document.write('<th>序号</th>');
-	document.write('<th>名称</th>');
-	document.write('<th>歌手</th>');
-	document.write('<th><input type="checkbox" id="allbox" onclick=select_allbox() value="value"/></th>');
-	document.write('<th>操作</th>');
+	document.write('<th width=80>全选<input type="checkbox" id="allbox" onclick=select_allbox() value="value"/></th>');
+	document.write('<th width=40>序号</th>');
+	document.write('<th width=400>名称</th>');
+	document.write('<th width=80>歌手</th>');
+	document.write('<th width=200>操作</th>');
 	document.write('</tr>');
 	for(var j=0 ; j<artist_t.albumlist[0].disclist.length; j++){
 		for(var i=0 ; i<artist_t.albumlist[0].disclist[j].songlist.length; i++){
 			songinfo = artist_t.albumlist[0].disclist[j].songlist;
 			/*write song list table's header*/
 			document.write('<tr>');
+			document.write('<td><input type="checkbox" name="box" value="' + songinfo[i].id + '"/></td>');
 			document.write('<td>'+ (i+1) +'</td>');
 			document.write('<td>'+songinfo[i].name+'</td>');
 			document.write('<td>'+artist_t.name+'</td>');
-			document.write('<td><input type="checkbox" name="box" value="' + songinfo[i].id + '"/></td>');
-			document.write('<td><a href='+""+'>下载</a></td>');
+			document.write('<td>\
+					<a onclick="playone(event)" href="javascript:void(0)" >试听</a>\
+					<a>下载</a>\
+					<a>MTV</a>\
+					<a>分享</a>\
+					</td>');
 			document.write('</tr>');
 			//songcodeend++;
 			//playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodeend+'/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>';
 
 		}
 	}
+}
+function play(songcodebase,songcodelist){
+	var playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodelist+'_235_346_e29833_60362a_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>';
+	//document.write(playurl);	
+	/*开新窗口播放选中列表*/
+	var playwin = window.open('',"三丹丹播放器","width=255,height=366,status=no,resizable=no");
+	playwin.document.write(playurl);
 }
 function playlist(){
 	var boxlist = document.getElementsByName("box");
@@ -121,13 +182,13 @@ function playlist(){
         if (songcodelist == ""){ 
             alert("请至少选择一首以上歌曲。"); 
             return; 
-        } 
-	var playurl='<embed  src="http://www.xiami.com/widget/'+songcodebase+songcodelist+'_235_346_e29833_60362a_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>';
-	//document.write(playurl);	
-	/*开新窗口播放选中列表*/
-	var playwin = window.open('',"三丹丹播放器","width=255,height=366,status=no,resizable=no");
-	playwin.document.write(playurl);
-	
+        }
+	 play(songcodebase,songcodelist);
+}
+function playone(event){
+	var event_src = event.target || window.event.srcElement;
+	var songcode = event_src.parentNode.parentNode.firstChild.firstChild.value;
+	 play(songcodebase,songcode);
 }
 function select_allbox(){
 	var boxlist = document.getElementsByName("box");
@@ -149,12 +210,11 @@ document.write('<button  name="play" onclick='+""+' >播放选中歌曲</button>
 </table>
 </div> <!--songlist end -->
 
-<article class="docBox">
 
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
-    <div id="disqus_thread">
+    <!--div id="disqus_thread">
     <script type="text/javascript">
         var disqus_shortname = '3dandancom'; // required: replace example with your forum shortname
 
@@ -167,13 +227,16 @@ document.write('<button  name="play" onclick='+""+' >播放选中歌曲</button>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
- </div>
+ </div-->
 
     </div>
 
-    <!--div id="footer">
-        <p>Power By Github Page</p>
-    </div-->
+    <div id="footer">
+	<br>
+        网站状态：开发和调试中，未正式上线<br>
+        网站主旨：推广和分享陕北文化精粹<br>
+        网站赞助：Power By Github Page<br>
+    </div>
 
   </body>
 <script>

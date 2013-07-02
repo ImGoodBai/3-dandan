@@ -2,23 +2,24 @@
 layout: page
 keyword: 陕北民歌
 tags: 
-title: 山丹丹陕北文化网
+title: 山丹丹网
 ---
 
 <link type="text/css" rel="stylesheet" href="test_css3_UI_lib_files/style.css" />
-<div class="nav">
-	<ul id="nav-ul" class="nav-ul">
+<script> index=1;</script>
+<div name="ablum_block" class="ablum_block">
+<table id=artist_table>
 	{% for post in site.posts %}
-		<div name="ablum_block" class="ablum_block">
-			<div name="ablum_block_info" class="ablum_block">
-			<li> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-			</div>	
-		</div>	
+		<tr>
+		<td width=30><script> document.write(index++);</script> </td>
+		<!--td> <img src="/images/android-32.jpg" height=60> </td-->
+		<td width=500> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
+		<td> <a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ post.image }}" width= 60 height=60></a></td>
+		</tr>
 	{% endfor %}
-	</ul>
+</table>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
 
 <script type="text/javascript" src="test_css3_UI_lib_files/jquery-1.6.1.js"></script>
 <script type="text/javascript" src="test_css3_UI_lib_files/qwt.demolist.js"></script>

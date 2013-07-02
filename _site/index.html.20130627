@@ -6,22 +6,22 @@
     <meta name="copyright" content="http://goodbai.com" />
     <meta name="keywords" content="" />
     <meta name="description" content="分享和传播陕北文化，内容包括陕北民歌、人文风俗、吃喝等等。" />
-    <title></title>
+    <title>陕北民歌-</title>
   </head>
 
   <body>
   <div id="page" class="background">
     <div id="header">
-        <div id=daohang">
+        <div id="header_menu">
         <ul >
         <!--li><a href="/index.html"> 3dandan </a></li-->
         <li><a href="/index.html"> 陕北民歌 </a></li>
         <li><a class="about" href="/">陕北说书</a></li>
         <li><a class="about" href="/">关于本站</a></li>
-        <li id="client">手机客户端
-		<a href="/"><img src="images/apple-32.jpg" width=20 height=20></a>
-		<a href="/"><img src="images/android-32.jpg" width=20 height=20></a>
-	</li>
+        <!--li id="header_tools">手机客户端
+		<a href="/"><img src="images/apple-32.jpg" width=15 height=15></a>
+		<a href="/"><img src="images/android-32.jpg" width=15 height=15></a>
+	</li-->
         </ul>
         </div>
     </div>
@@ -60,9 +60,12 @@
 
     </div>
 
-    <!--div id="footer">
-        <p>Power By Github Page</p>
-    </div-->
+    <div id="footer">
+	<br>
+        网站状态：开发和调试中，未正式上线<br>
+        网站主旨：推广和分享陕北文化精粹<br>
+        网站赞助：Power By Github Page<br>
+    </div>
 
   </body>
 <script>
