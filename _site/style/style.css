@@ -1,8 +1,10 @@
+* {
+	padding: 0;
+	margin: 0;
+}
 body {
 	background: url(/images/bg2.png);
 	repeat-x;
-	padding-bottom: 0px;
-	padding-top: 0px;
 	line-height: 1.6em;
         font-size:90%;
 	font-family: Palatino, georgia, "times new roman", "宋体";
@@ -12,7 +14,6 @@ body {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0;
 }
 #main {
 	background-color: #FFFFFF;
@@ -24,27 +25,42 @@ body {
 }
 #header{
 	width:800px;
-	font-size:1.1em;
 	margin: 2em; 
 }
 
-ul,li {
-	margin: 0;
-}
-#header ul li { display: inline }
+#header  li { display: inline }
 #header a:hover {
         text-decoration:none;
 	color: white;
 }
 #header a { color: black;}
 #header li {
-	padding: 0.35em;
+	font-size:1.0em;
+	padding: 0.5em;
 	background: url(/images/umi_from_gray.gif);
 	box-shadow: 0px 0px 1px gray;
 	
 }
 #header li:hover {
 	background: url(/images/umi_from_green.gif);
+}
+#header_searchbox {
+	font-size: 50%;
+	width:150px;
+}
+#sider li {
+	border: 1px solid gray;
+	padding: 1em;
+	box-shadow: 0px 0px 1px gray;
+	list-style-type: none;
+}
+#sider {
+	border: 1px solid;
+	position: relative;
+	width: 100px;
+	top: 0px;
+	left: -150px;
+	margin: 0px;
 }
 #artist_table {
 	margin: 0 auto 0 auto;
