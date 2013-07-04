@@ -22,39 +22,29 @@ body {
 /*	box-shadow: 2px 2px 10px #aaa;
 */
 }
-#header:link {
-	color: blue;
-}
 #header{
 	width:800px;
-	font-size:1.2em;
-	font-color:red;
-	color: red;
-	/*
-	border:5px solid gray;
-	position: relative;
-	padding: 0; 
-	margin: 0;                 
-	height:1.5em;
-	border: 1px solid black;
-        */
+	font-size:1.1em;
+	margin: 2em; 
 }
 
-#header_menu {
-	text-align: left;
+ul,li {
+	margin: 0;
 }
-#header_tools {
-	font-size: 90%;
-}
-#header ul li { display: inline; }
-#header ul li a:hover {
-	border-bottom: 2px solid blue;
+#header ul li { display: inline }
+#header a:hover {
         text-decoration:none;
+	color: white;
 }
-#header .byline {
-	color: silver;
-	font-size: 10pt;
-	line-height: 75%
+#header a { color: black;}
+#header li {
+	padding: 0.35em;
+	background: url(/images/umi_from_gray.gif);
+	box-shadow: 0px 0px 1px gray;
+	
+}
+#header li:hover {
+	background: url(/images/umi_from_green.gif);
 }
 #artist_table {
 	margin: 0 auto 0 auto;
@@ -74,7 +64,7 @@ td {
 	border: 1px solid black;
 }
 #songlist {
-	background-color: rgb(234, 236, 182);
+	background-color: rgb(219, 228, 227); 
 	padding: 0.5em;
 	margin:1em 0 1em 0;	/*设置图片与文字的间距*/
 }
@@ -83,10 +73,8 @@ td {
 }
 table:first-child:first-child {
 }
-#header:hover .byline a { color: silver; text-shadow: none; }
-#header:hover .byline a:hover { color: black; text-shadow: #aaa 1px 1px 2px;}
-a:link { color: blue;}
-a:visited{ color: red;}
+#main a:link { color: blue;}
+#main a:visited{ color: red;}
 a:hover { text-decoration:underline;}
 a:active {text-decoration:underline;}
 a {text-decoration:none;}
@@ -112,16 +100,17 @@ h6 {font-size:1em;font-weight:bold;}
 
 ----------------------------------------------------------------------- */
 
-/*
 #footer{
-	background-color: #333333;
 	color: gray;
+	font-size: 80%;
+/*
+	background-color: #333333;
 	padding: 0 0 0 0; 
 	margin: 5em 0 0 0;                 
 	position:absolute;
 	left:0;
 	right:0;
 	bottom:auto;
-}
 */
+}
 
