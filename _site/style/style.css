@@ -41,7 +41,7 @@ body {
 	box-shadow: 0px 0px 1px gray;
 	
 }
-#header li:hover {
+#header .topitem:hover {
 	background: url(/images/umi_from_green.gif);
 }
 #header_searchbox {
